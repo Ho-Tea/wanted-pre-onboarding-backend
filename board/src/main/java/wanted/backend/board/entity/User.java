@@ -3,6 +3,7 @@ package wanted.backend.board.entity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
+import wanted.backend.board.vo.Authority;
 
 @Entity
 @Builder
@@ -15,4 +16,7 @@ public class User {
 
     private String email;
     private String password;
+    @Enumerated(EnumType.STRING)
+    private Authority authority;
+
 }
