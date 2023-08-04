@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 public class UserRequest {
     @NotNull
     @Email
-    private String nickname;
+    private String email;
 
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @NotNull
