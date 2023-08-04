@@ -2,6 +2,7 @@ package wanted.backend.board.jwt;
 
 import jakarta.servlet.*;
 import jakarta.servlet.http.HttpServletRequest;
+import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.core.Authentication;
@@ -10,14 +11,12 @@ import org.springframework.util.StringUtils;
 
 import java.io.IOException;
 
+@RequiredArgsConstructor
 public class JwtFilter extends GenericFilter {
     private static final Logger logger = LoggerFactory.getLogger(JwtFilter.class);
     public static final String AUTHORIZATION_HEADER = "Authorization";
 
-    private TokenProvider tokenProvider;
-    public JwtFilter(TokenProvider tokenProvider){
-        this.tokenProvider = tokenProvider;
-    }
+    private final TokenProvider tokenProvider;
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         HttpServletRequest httpServletRequest = (HttpServletRequest) request;
