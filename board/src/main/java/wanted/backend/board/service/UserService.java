@@ -15,6 +15,7 @@ import wanted.backend.board.jwt.TokenProvider;
 import wanted.backend.board.repository.UserRepository;
 import wanted.backend.board.vo.Authority;
 
+import java.util.Collections;
 import java.util.Optional;
 
 @Service
@@ -39,14 +40,14 @@ public class UserService {
 
     @Transactional
     public String signup(UserRequest userDto) {
-        if(userRepository.findOneWithAuthoritiesByUserName(userDto.getEmail()).orElse(null) != null){
+        if(userRepository.findByEmail(userDto.getEmail()).orElse(null) != null){
             throw new RuntimeException("이미 가입 되어있는 유저입니다");
         }
 
         User user = User.builder()
                 .email(userDto.getEmail())
                 .password(passwordEncoder.encode(userDto.getPassword()))
-                .authority(Authority.USER)
+                .authority(Authority.ROLE_USER)
                 .build();
 
         userRepository.save(user);

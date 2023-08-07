@@ -7,6 +7,5 @@ import wanted.backend.board.entity.User;
 import java.util.Optional;
 
 public interface UserRepository extends JpaRepository<User, Long> {
-    @EntityGraph(attributePaths = "authorities")
-    Optional<User> findOneWithAuthoritiesByUserName(String username);
+    Optional<User> findByEmail(String email);
 }
