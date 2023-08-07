@@ -9,6 +9,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
+import wanted.backend.board.dto.UserAdapter;
 import wanted.backend.board.repository.UserRepository;
 
 import java.util.List;
@@ -29,6 +30,6 @@ public class CustomUserDetailService implements UserDetailsService {
 
     private User createUser(wanted.backend.board.entity.User user) {
         List<GrantedAuthority> grantedAuthorities = List.of(new SimpleGrantedAuthority(user.getAuthority().name()));
-        return new User(user.getEmail(), user.getPassword(), grantedAuthorities);
+        return new UserAdapter(user, grantedAuthorities);
     }
 }
