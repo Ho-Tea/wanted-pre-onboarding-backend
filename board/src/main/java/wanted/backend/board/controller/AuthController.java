@@ -17,25 +17,23 @@ import wanted.backend.board.dto.UserRequest;
 import wanted.backend.board.jwt.JwtFilter;
 import wanted.backend.board.jwt.TokenProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import wanted.backend.board.service.UserService;
 
 @RestController
 @RequestMapping("/auth")
 @RequiredArgsConstructor
 public class AuthController {
-    private final TokenProvider tokenProvider;
-    private final AuthenticationManagerBuilder authenticationManagerBuilder;
-
+    private final UserService userService;
     @PostMapping("/login")
-    public ResponseEntity<LoginResponse> authorize(@Valid @RequestBody UserRequest userDto) {
-        UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(userDto.getEmail(), userDto.getPassword());
-
-        Authentication authentication = authenticationManagerBuilder.getObject().authenticate(authenticationToken);
-        SecurityContextHolder.getContext().setAuthentication(authentication);
-
-        String jwt = tokenProvider.createToken(authentication);
-
+    public ResponseEntity<LoginResponse> login(@Valid @RequestBody UserRequest userDto) {
+        String jwt = userService.login(userDto);
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.add(JwtFilter.AUTHORIZATION_HEADER, "Bearer " + jwt);
         return new ResponseEntity<>(new LoginResponse(jwt), httpHeaders, HttpStatus.OK);
+    }
+
+    @PostMapping("/signup")
+    public ResponseEntity<String> signup(@Valid @RequestBody UserRequest userDto){
+        return ResponseEntity.ok(userService.signup(userDto));
     }
 }
