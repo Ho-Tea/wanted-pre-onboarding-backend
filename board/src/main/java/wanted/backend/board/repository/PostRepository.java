@@ -11,6 +11,6 @@ import java.util.List;
 
 
 public interface PostRepository extends JpaRepository<Post, Long> {
-    @Query("select p from Post p")
-    Page<Post> findWithPagination(Pageable pageable);
+//    @Query("select p from Post p")
+//    Page<Post> findWithPagination(Pageable pageable);
 }
