@@ -15,9 +15,6 @@ import wanted.backend.board.jwt.TokenProvider;
 import wanted.backend.board.repository.UserRepository;
 import wanted.backend.board.vo.Authority;
 
-import java.util.Collections;
-import java.util.Optional;
-
 @Service
 @RequiredArgsConstructor
 public class UserService {
@@ -29,7 +26,7 @@ public class UserService {
 
 
     @Transactional
-    public String login(UserRequest userDto){
+    public String login(UserRequest userDto) {
         UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(userDto.getEmail(), userDto.getPassword());
 
         Authentication authentication = authenticationManagerBuilder.getObject().authenticate(authenticationToken);
@@ -40,7 +37,7 @@ public class UserService {
 
     @Transactional
     public String signup(UserRequest userDto) {
-        if(userRepository.findByEmail(userDto.getEmail()).orElse(null) != null){
+        if (userRepository.findByEmail(userDto.getEmail()).orElse(null) != null) {
             throw new RuntimeException("이미 가입 되어있는 유저입니다");
         }
 
