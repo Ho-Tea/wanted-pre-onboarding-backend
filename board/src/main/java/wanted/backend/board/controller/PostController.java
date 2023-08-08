@@ -62,6 +62,14 @@ public class PostController {
         return ResponseEntity.ok("게시글이 수정되었습니다");
     }
 
+    @PostMapping("/delete/{postId}")
+    @PreAuthorize("hasAnyRole('USER')")
+    public ResponseEntity<String> delete (@PathVariable Long postId,
+                                          @AuthenticationPrincipal UserAdapter presentUser){
+        postService.delete(postId, presentUser);
+        return ResponseEntity.ok("게시글이 삭제되었습니다");
+    }
+
 
 
 }

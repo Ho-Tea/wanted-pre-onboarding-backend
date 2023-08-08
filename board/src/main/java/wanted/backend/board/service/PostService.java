@@ -51,4 +51,15 @@ public class PostService {
         post.get().update(postRequest.getTitle(), postRequest.getContent());
     }
 
+    @Transactional
+    public void delete(Long postId, UserAdapter presentUser){
+        Optional<Post> post = postRepository.findById(postId);
+        User user = post.map( o -> o.getUser())
+                .orElseThrow(() -> new RuntimeException("존재하지 않는 ID입니다"));
+        if(!user.equals(presentUser.getUser())){
+            throw new RuntimeException("게시글의 작성자만 삭제할 수 있습니다");
+        }
+        postRepository.deleteById(postId);
+    }
+
 }
