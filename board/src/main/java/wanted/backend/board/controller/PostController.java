@@ -15,10 +15,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
-import wanted.backend.board.dto.PostListDto;
-import wanted.backend.board.dto.PostRequest;
-import wanted.backend.board.dto.PostResponse;
-import wanted.backend.board.dto.UserAdapter;
+import wanted.backend.board.dto.*;
 import wanted.backend.board.repository.PostRepository;
 import wanted.backend.board.service.PostService;
 import wanted.backend.board.vo.PageInfo;
@@ -45,6 +42,14 @@ public class PostController {
     public ResponseEntity<String> save(@Valid @RequestBody PostRequest postRequest, @AuthenticationPrincipal UserAdapter userAdapter){
         postService.save(postRequest, userAdapter);
         return ResponseEntity.ok("저장되었습니다");
+    }
+
+
+    @GetMapping("/search/{postId}")
+    @PreAuthorize("hasAnyRole('USER')")
+    public ResponseEntity<PostDetailResponse> search (@PathVariable Long postId){
+        PostDetailResponse postDetailResponse = postService.search(postId);
+        return ResponseEntity.ok(postDetailResponse);
     }
 
 
