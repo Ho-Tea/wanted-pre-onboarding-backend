@@ -13,7 +13,9 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
+import wanted.backend.board.service.CustomUserDetailService;
 
 import java.security.Key;
 import java.util.Arrays;
@@ -29,11 +31,13 @@ public class TokenProvider implements InitializingBean {
     private final String secret;
     private final long tokenValidityInMilliseconds;
 
+    private final CustomUserDetailService customUserDetailService;
     private Key key;
 
-    public TokenProvider(@Value("${jwt.secret}") String secret, @Value("${jwt.token-validity-in-seconds}") long tokenValidityInMilliseconds) {
+    public TokenProvider(@Value("${jwt.secret}") String secret, @Value("${jwt.token-validity-in-seconds}") long tokenValidityInMilliseconds, CustomUserDetailService customUserDetailService) {
         this.secret = secret;
         this.tokenValidityInMilliseconds = tokenValidityInMilliseconds * 1000;
+        this.customUserDetailService = customUserDetailService;
     }
 
     @Override
@@ -60,14 +64,8 @@ public class TokenProvider implements InitializingBean {
 
     public Authentication getAuthentication(String token) {
         Claims claims = Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(token).getBody();
-
-        Collection<? extends GrantedAuthority> authorities =
-                Arrays.stream(claims.get(AUTHORITIES_KEY).toString().split(","))
-                        .map(SimpleGrantedAuthority::new)
-                        .collect(Collectors.toList());
-
-        User principal = new User(claims.getSubject(), "", authorities);
-        return new UsernamePasswordAuthenticationToken(principal, token, authorities);
+        UserDetails userDetails = customUserDetailService.loadUserByUsername(claims.getSubject());
+        return new UsernamePasswordAuthenticationToken(userDetails, token, userDetails.getAuthorities());
     }
 
 
