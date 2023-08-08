@@ -16,12 +16,12 @@ public class PostResponse {
     @NotNull
     private Long id;
     @NotNull
-    private String content;
+    private String title;
 
     public static PostResponse from(Post post){
         return PostResponse.builder()
                 .id(post.getId())
-                .content(post.getContent())
+                .title(post.getTitle())
                 .build();
     }
 
