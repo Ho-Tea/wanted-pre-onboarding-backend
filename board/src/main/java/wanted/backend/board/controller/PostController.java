@@ -39,9 +39,9 @@ public class PostController {
 
     @PostMapping("/save")
     @PreAuthorize("hasAnyRole('USER')")
-    public ResponseEntity<String> save(@Valid @RequestBody PostRequest postRequest, @AuthenticationPrincipal UserAdapter userAdapter){
-        postService.save(postRequest, userAdapter);
-        return ResponseEntity.ok("저장되었습니다");
+    public ResponseEntity<String> save(@Valid @RequestBody PostRequest postRequest, @AuthenticationPrincipal UserAdapter presentUser){
+        postService.save(postRequest, presentUser);
+        return ResponseEntity.ok("새로운 게시글이 생성되었습니다");
     }
 
 
@@ -51,6 +51,17 @@ public class PostController {
         PostDetailResponse postDetailResponse = postService.search(postId);
         return ResponseEntity.ok(postDetailResponse);
     }
+
+
+    @PostMapping("/update/{postId}")
+    @PreAuthorize("hasAnyRole('USER')")
+    public ResponseEntity<String> update (@PathVariable Long postId,
+                                                      @Valid @RequestBody PostRequest postRequest,
+                                                      @AuthenticationPrincipal UserAdapter presentUser){
+        postService.update(postId, postRequest, presentUser);
+        return ResponseEntity.ok("게시글이 수정되었습니다");
+    }
+
 
 
 }

@@ -11,13 +11,13 @@ import wanted.backend.board.dto.PostRequest;
 import wanted.backend.board.dto.PostResponse;
 import wanted.backend.board.dto.UserAdapter;
 import wanted.backend.board.entity.Post;
+import wanted.backend.board.entity.User;
 import wanted.backend.board.repository.PostRepository;
 
 import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
-@Transactional
 public class PostService {
     private final PostRepository postRepository;
 
@@ -27,14 +27,28 @@ public class PostService {
         return postRepository.findAllByOrderByUserIdDesc(pageRequest).map(PostResponse::from);
     }
 
-    public void save(PostRequest postRequest, UserAdapter userAdapter){
-        Post post = postRequest.toEntity(userAdapter.getUser());
+    @Transactional
+    public void save(PostRequest postRequest, UserAdapter presentUser){
+        Post post = postRequest.toEntity(presentUser.getUser());
         postRepository.save(post);
     }
 
+    @Transactional(readOnly = true)
     public PostDetailResponse search(Long postId){
         Optional<Post> post = postRepository.findById(postId);
         return post.map(PostDetailResponse::from)
-                .orElseThrow(() -> new RuntimeException("존재하지 않는 ID"));
+                .orElseThrow(() -> new RuntimeException("존재하지 않는 ID입니다"));
     }
+
+    @Transactional
+    public void update(Long postId, PostRequest postRequest, UserAdapter presentUser){
+        Optional<Post> post = postRepository.findById(postId);
+        User user = post.map( o -> o.getUser())
+                .orElseThrow(() -> new RuntimeException("존재하지 않는 ID입니다"));
+        if(!user.equals(presentUser.getUser())){
+            throw new RuntimeException("게시글의 작성자만 수정할 수 있습니다");
+        }
+        post.get().update(postRequest.getTitle(), postRequest.getContent());
+    }
+
 }
