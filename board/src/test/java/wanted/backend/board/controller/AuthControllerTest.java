@@ -39,6 +39,8 @@ class AuthControllerTest {
 
     @Autowired
     ObjectMapper objectMapper;
+    @MockBean
+    UserService userService;
 
 
     private static String validEmail = "Valid@email.com";
