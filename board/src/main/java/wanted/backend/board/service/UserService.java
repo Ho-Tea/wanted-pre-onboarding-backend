@@ -36,11 +36,8 @@ public class UserService {
     }
 
     @Transactional
-    public String signup(UserRequest userDto) {
-        if (userRepository.findByEmail(userDto.getEmail()).orElse(null) != null) {
-            throw new RuntimeException("이미 가입 되어있는 유저입니다");
-        }
-
+    public String join(UserRequest userDto) {
+        validateDuplicateUser(userDto);
         User user = User.builder()
                 .email(userDto.getEmail())
                 .password(passwordEncoder.encode(userDto.getPassword()))
@@ -51,4 +48,9 @@ public class UserService {
         return user.getEmail();
     }
 
+    private void validateDuplicateUser(UserRequest userDto){
+        if (userRepository.findByEmail(userDto.getEmail()).orElse(null) != null) {
+            throw new RuntimeException("이미 가입 되어있는 유저입니다");
+        }
+    }
 }
