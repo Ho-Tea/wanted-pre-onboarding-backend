@@ -19,7 +19,6 @@ public class UserRequest {
     @Email
     private String email;
 
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @NotNull
     @Size(min = 8)
     private String password;
