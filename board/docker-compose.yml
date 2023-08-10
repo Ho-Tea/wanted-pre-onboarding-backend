@@ -1,0 +1,34 @@
+version: "3.8"                                          # 파일 규격 버전
+services:                                               # 이 항목 밑에 실행하려는 컨테이너들을 정의
+  database:
+    container_name: database
+    image: mysql:8.0.30
+    environment:
+      - MYSQL_DATABASE=board
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+    volumes:
+      - ./db:var/lib/mysql
+    ports:
+      - "3306:3306"      # 접근 포트 설정 (컨테이너 외부:컨테이너 내부)
+    restart: always
+    networks:
+      - springboot-mysql-network
+  application:
+    container_name: board-app
+    build: .
+    depends_on:
+      - database
+    image: zcx5674/pharmacy-recommendation-app
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://database:3306/board?useSSL=false&allowPublicKeyRetrieval=true
+      - SPRING_DATASOURCE_USERNAME=${SPRING_DATASOURCE_USERNAME}
+      - SPRING_DATASOURCE_PASSWORD=${SPRING_DATASOURCE_PASSWORD}
+    ports:
+      - "8080:8080"
+    restart: always
+    networks:
+      - springboot-mysql-network
+
+networks:
+  springboot-mysql-network:
+    driver: bridge
