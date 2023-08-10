@@ -4,7 +4,7 @@ services:                                               # 이 항목 밑에 실�
     container_name: database
     image: mysql:8.0.30
     environment:
-      - MYSQL_DATABASE=board
+      - MYSQL_DATABASE=wanted
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
     volumes:
       - ./db:var/lib/mysql
@@ -18,9 +18,8 @@ services:                                               # 이 항목 밑에 실�
     build: .
     depends_on:
       - database
-    image: zcx5674/pharmacy-recommendation-app
     environment:
-      - SPRING_DATASOURCE_URL=jdbc:mysql://database:3306/board?useSSL=false&allowPublicKeyRetrieval=true
+      - SPRING_DATASOURCE_URL=jdbc:mysql://database:3306/wanted?useSSL=false&allowPublicKeyRetrieval=true
       - SPRING_DATASOURCE_USERNAME=${SPRING_DATASOURCE_USERNAME}
       - SPRING_DATASOURCE_PASSWORD=${SPRING_DATASOURCE_PASSWORD}
     ports:
