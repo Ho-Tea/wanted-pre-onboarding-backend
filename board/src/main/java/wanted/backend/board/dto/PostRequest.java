@@ -20,7 +20,7 @@ public class PostRequest {
     @NotNull
     private String content;
 
-    public Post toEntity(User user){
+    public Post toEntity(User user) {
         return Post.builder()
                 .title(title)
                 .content(content)

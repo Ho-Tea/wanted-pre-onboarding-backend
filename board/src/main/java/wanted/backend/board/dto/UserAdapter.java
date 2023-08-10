@@ -8,7 +8,8 @@ import java.util.Collection;
 
 @Getter
 public class UserAdapter extends User {
-    private wanted.backend.board.entity.User user;
+    private final wanted.backend.board.entity.User user;
+
     public UserAdapter(wanted.backend.board.entity.User user, Collection<? extends GrantedAuthority> authorities) {
         super(user.getEmail(), user.getPassword(), authorities);
         this.user = user;

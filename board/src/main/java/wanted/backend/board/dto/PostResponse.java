@@ -18,7 +18,7 @@ public class PostResponse {
     @NotNull
     private String title;
 
-    public static PostResponse from(Post post){
+    public static PostResponse from(Post post) {
         return PostResponse.builder()
                 .id(post.getId())
                 .title(post.getTitle())

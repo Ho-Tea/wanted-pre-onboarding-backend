@@ -48,7 +48,7 @@ public class UserService {
         return user.getEmail();
     }
 
-    private void validateDuplicateUser(UserRequest userDto){
+    private void validateDuplicateUser(UserRequest userDto) {
         if (userRepository.findByEmail(userDto.getEmail()).orElse(null) != null) {
             throw new RuntimeException("이미 가입 되어있는 유저입니다");
         }

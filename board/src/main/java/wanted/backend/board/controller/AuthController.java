@@ -32,4 +32,5 @@ public class AuthController {
     public ResponseEntity<String> signup(@Valid @RequestBody UserRequest userDto) {
         return ResponseEntity.ok(userService.join(userDto));
     }
+
 }
