@@ -46,6 +46,7 @@ $ sudo docker-compose up -d --build
 ---
 ## 구현한 API의 동작을 촬영한 데모 영상 링크
 
+[API동작 데모영상](https://youtu.be/hv3pd69gbJc)
 
 ---
 
