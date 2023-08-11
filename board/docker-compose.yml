@@ -5,7 +5,9 @@ services:                                               # 이 항목 밑에 실�
     image: mysql:8.0.30
     environment:
       - MYSQL_DATABASE=wanted
-      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_ROOT_PASSWORD=${MYSQL_PASSWORD}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
     volumes:
       - ./mysql:/var/lib/mysql
     ports:
@@ -19,7 +21,7 @@ services:                                               # 이 항목 밑에 실�
     depends_on:
       - database
     environment:
-      - SPRING_DATASOURCE_URL=jdbc:mysql://database:3306/wanted?useSSL=false&allowPublicKeyRetrieval=true
+      - SPRING_DATASOURCE_URL=${SPRING_DATASOURCE_URL}
       - SPRING_DATASOURCE_USERNAME=${SPRING_DATASOURCE_USERNAME}
       - SPRING_DATASOURCE_PASSWORD=${SPRING_DATASOURCE_PASSWORD}
     ports:
