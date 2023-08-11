@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="wanted.backend.board.service.PostServiceTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2023-08-11T07:13:09" hostname="yunjuhoui-MacBookAir.local" time="0.144">
+  <properties/>
+  <testcase name="게시물 목록을 조회할 때 Pagination기능을 사용한다" classname="wanted.backend.board.service.PostServiceTest" time="0.106"/>
+  <testcase name="게시글 생성 검증" classname="wanted.backend.board.service.PostServiceTest" time="0.013"/>
+  <testcase name="게시글 수정 시 게시글 작성자가 아니면 예외발생" classname="wanted.backend.board.service.PostServiceTest" time="0.013"/>
+  <testcase name="게시글 삭제 시 게시글 작성자가 아니면 예외발생" classname="wanted.backend.board.service.PostServiceTest" time="0.009"/>
+  <system-out><![CDATA[2023-08-11T16:13:09.838+09:00  INFO 91841 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [wanted.backend.board.service.PostServiceTest]: PostServiceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2023-08-11T16:13:09.842+09:00  INFO 91841 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration wanted.backend.board.BoardApplication for test class wanted.backend.board.service.PostServiceTest
+Hibernate: 
+    insert 
+    into
+        User
+        (authority, email, password) 
+    values
+        (?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        Post
+        (content, title, user_id) 
+    values
+        (?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        Post
+        (content, title, user_id) 
+    values
+        (?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        Post
+        (content, title, user_id) 
+    values
+        (?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        Post
+        (content, title, user_id) 
+    values
+        (?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        Post
+        (content, title, user_id) 
+    values
+        (?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        Post
+        (content, title, user_id) 
+    values
+        (?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        Post
+        (content, title, user_id) 
+    values
+        (?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        Post
+        (content, title, user_id) 
+    values
+        (?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        Post
+        (content, title, user_id) 
+    values
+        (?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        Post
+        (content, title, user_id) 
+    values
+        (?, ?, ?)
+Hibernate: 
+    select
+        p1_0.id,
+        p1_0.content,
+        p1_0.title,
+        p1_0.user_id 
+    from
+        Post p1_0 
+    order by
+        p1_0.user_id desc limit ?,
+        ?
+Hibernate: 
+    select
+        count(p1_0.id) 
+    from
+        Post p1_0
+Hibernate: 
+    insert 
+    into
+        User
+        (authority, email, password) 
+    values
+        (?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        Post
+        (content, title, user_id) 
+    values
+        (?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        Post
+        (content, title, user_id) 
+    values
+        (?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        Post
+        (content, title, user_id) 
+    values
+        (?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        Post
+        (content, title, user_id) 
+    values
+        (?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        Post
+        (content, title, user_id) 
+    values
+        (?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        Post
+        (content, title, user_id) 
+    values
+        (?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        Post
+        (content, title, user_id) 
+    values
+        (?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        Post
+        (content, title, user_id) 
+    values
+        (?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        Post
+        (content, title, user_id) 
+    values
+        (?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        Post
+        (content, title, user_id) 
+    values
+        (?, ?, ?)
+Hibernate: 
+    select
+        p1_0.id,
+        p1_0.content,
+        p1_0.title,
+        p1_0.user_id 
+    from
+        Post p1_0
+Hibernate: 
+    insert 
+    into
+        Post
+        (content, title, user_id) 
+    values
+        (?, ?, ?)
+Hibernate: 
+    select
+        p1_0.id,
+        p1_0.content,
+        p1_0.title,
+        p1_0.user_id 
+    from
+        Post p1_0
+Hibernate: 
+    insert 
+    into
+        User
+        (authority, email, password) 
+    values
+        (?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        Post
+        (content, title, user_id) 
+    values
+        (?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        Post
+        (content, title, user_id) 
+    values
+        (?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        Post
+        (content, title, user_id) 
+    values
+        (?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        Post
+        (content, title, user_id) 
+    values
+        (?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        Post
+        (content, title, user_id) 
+    values
+        (?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        Post
+        (content, title, user_id) 
+    values
+        (?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        Post
+        (content, title, user_id) 
+    values
+        (?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        Post
+        (content, title, user_id) 
+    values
+        (?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        Post
+        (content, title, user_id) 
+    values
+        (?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        Post
+        (content, title, user_id) 
+    values
+        (?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        User
+        (authority, email, password) 
+    values
+        (?, ?, ?)
+Hibernate: 
+    select
+        p1_0.id,
+        p1_0.content,
+        p1_0.title,
+        p1_0.user_id 
+    from
+        Post p1_0 
+    where
+        p1_0.id=?
+Hibernate: 
+    insert 
+    into
+        User
+        (authority, email, password) 
+    values
+        (?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        Post
+        (content, title, user_id) 
+    values
+        (?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        Post
+        (content, title, user_id) 
+    values
+        (?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        Post
+        (content, title, user_id) 
+    values
+        (?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        Post
+        (content, title, user_id) 
+    values
+        (?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        Post
+        (content, title, user_id) 
+    values
+        (?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        Post
+        (content, title, user_id) 
+    values
+        (?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        Post
+        (content, title, user_id) 
+    values
+        (?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        Post
+        (content, title, user_id) 
+    values
+        (?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        Post
+        (content, title, user_id) 
+    values
+        (?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        Post
+        (content, title, user_id) 
+    values
+        (?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        User
+        (authority, email, password) 
+    values
+        (?, ?, ?)
+Hibernate: 
+    select
+        p1_0.id,
+        p1_0.content,
+        p1_0.title,
+        p1_0.user_id 
+    from
+        Post p1_0 
+    where
+        p1_0.id=?
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

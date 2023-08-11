@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="wanted.backend.board.controller.AuthControllerTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2023-08-11T07:13:09" hostname="yunjuhoui-MacBookAir.local" time="0.118">
+  <properties/>
+  <testcase name="회원가입 성공" classname="wanted.backend.board.controller.AuthControllerTest" time="0.084"/>
+  <testcase name="로그인시 비밀번호형식이 아닐경우 실패" classname="wanted.backend.board.controller.AuthControllerTest" time="0.012"/>
+  <testcase name="로그인 성공" classname="wanted.backend.board.controller.AuthControllerTest" time="0.007"/>
+  <testcase name="회원가입시 비밀번호형식이 아닐경우 실패" classname="wanted.backend.board.controller.AuthControllerTest" time="0.003"/>
+  <testcase name="회원가입시 이메일형식이 아닐경우 실패" classname="wanted.backend.board.controller.AuthControllerTest" time="0.004"/>
+  <testcase name="로그인시 이메일형식이 아닐경우 실패" classname="wanted.backend.board.controller.AuthControllerTest" time="0.004"/>
+  <system-out><![CDATA[2023-08-11T16:13:09.363+09:00  INFO 91841 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [wanted.backend.board.controller.AuthControllerTest]: AuthControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2023-08-11T16:13:09.369+09:00  INFO 91841 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration wanted.backend.board.BoardApplication for test class wanted.backend.board.controller.AuthControllerTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.0.9)
+
+2023-08-11T16:13:09.380+09:00  INFO 91841 --- [    Test worker] w.b.board.controller.AuthControllerTest  : Starting AuthControllerTest using Java 17.0.2 with PID 91841 (started by yoonjuho in /Users/yoonjuho/wanted-pre-onboarding-backend/board)
+2023-08-11T16:13:09.380+09:00  INFO 91841 --- [    Test worker] w.b.board.controller.AuthControllerTest  : No active profile set, falling back to 1 default profile: "default"
+2023-08-11T16:13:09.381+09:00 DEBUG 91841 --- [    Test worker] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@73bb782d
+2023-08-11T16:13:09.438+09:00  INFO 91841 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-08-11T16:13:09.443+09:00  INFO 91841 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 4 ms. Found 2 JPA repository interfaces.
+2023-08-11T16:13:09.510+09:00  INFO 91841 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-08-11T16:13:09.512+09:00  INFO 91841 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2023-08-11T16:13:09.515+09:00  INFO 91841 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7725470b
+2023-08-11T16:13:09.515+09:00  INFO 91841 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2023-08-11T16:13:09.515+09:00  INFO 91841 --- [    Test worker] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-08-11T16:13:09.515+09:00  WARN 91841 --- [    Test worker] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2023-08-11T16:13:09.551+09:00  INFO 91841 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-08-11T16:13:09.551+09:00  INFO 91841 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-08-11T16:13:09.596+09:00  WARN 91841 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-08-11T16:13:09.625+09:00  INFO 91841 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@651a399, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@79ef8115, org.springframework.security.web.context.SecurityContextHolderFilter@4a723adf, org.springframework.security.web.header.HeaderWriterFilter@3b4cce5a, org.springframework.security.web.authentication.logout.LogoutFilter@1d1c5bb5, wanted.backend.board.jwt.JwtFilter@6db99c79, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7f289126, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@22cbbe87, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3bb186b, org.springframework.security.web.session.SessionManagementFilter@58178b69, org.springframework.security.web.access.ExceptionTranslationFilter@35800dea, org.springframework.security.web.access.intercept.AuthorizationFilter@5946e540]
+2023-08-11T16:13:09.664+09:00 DEBUG 91841 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2023-08-11T16:13:09.675+09:00 DEBUG 91841 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : 9 mappings in 'requestMappingHandlerMapping'
+2023-08-11T16:13:09.681+09:00 DEBUG 91841 --- [    Test worker] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2023-08-11T16:13:09.683+09:00 DEBUG 91841 --- [    Test worker] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2023-08-11T16:13:09.711+09:00  INFO 91841 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2023-08-11T16:13:09.711+09:00  INFO 91841 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2023-08-11T16:13:09.712+09:00  INFO 91841 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2023-08-11T16:13:09.716+09:00  INFO 91841 --- [    Test worker] w.b.board.controller.AuthControllerTest  : Started AuthControllerTest in 0.344 seconds (process running for 2.644)
+2023-08-11T16:13:09.746+09:00 DEBUG 91841 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to wanted.backend.board.controller.AuthController#signup(UserRequest)
+2023-08-11T16:13:09.768+09:00 DEBUG 91841 --- [    Test worker] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [wanted.backend.board.dto.UserRequest@7ba70b3b]
+2023-08-11T16:13:09.796+09:00 DEBUG 91841 --- [    Test worker] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'text/plain', given [*/*] and supported [text/plain, */*, application/json, application/*+json]
+2023-08-11T16:13:09.796+09:00 DEBUG 91841 --- [    Test worker] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Nothing to write: null body
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /auth/signup
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Content-Length:"49"]
+             Body = {"email":"Valid@email.com","password":"12345678"}
+    Session Attrs = {}
+
+Handler:
+             Type = wanted.backend.board.controller.AuthController
+           Method = wanted.backend.board.controller.AuthController#signup(UserRequest)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = null
+             Body = 
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+2023-08-11T16:13:09.803+09:00 DEBUG 91841 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to wanted.backend.board.controller.AuthController#login(UserRequest)
+2023-08-11T16:13:09.804+09:00 DEBUG 91841 --- [    Test worker] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [wanted.backend.board.dto.UserRequest@65402e26]
+2023-08-11T16:13:09.812+09:00  WARN 91841 --- [    Test worker] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<wanted.backend.board.dto.LoginResponse> wanted.backend.board.controller.AuthController.login(wanted.backend.board.dto.UserRequest): [Field error in object 'userRequest' on field 'password': rejected value [False]; codes [Size.userRequest.password,Size.password,Size.java.lang.String,Size]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [userRequest.password,password]; arguments []; default message [password],2147483647,8]; default message [size must be between 8 and 2147483647]] ]
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /auth/login
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Content-Length:"46"]
+             Body = {"email":"Valid@email.com","password":"False"}
+    Session Attrs = {}
+
+Handler:
+             Type = wanted.backend.board.controller.AuthController
+           Method = wanted.backend.board.controller.AuthController#login(UserRequest)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = org.springframework.web.bind.MethodArgumentNotValidException
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 400
+    Error message = Invalid request content.
+          Headers = [X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = null
+             Body = 
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+2023-08-11T16:13:09.816+09:00 DEBUG 91841 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to wanted.backend.board.controller.AuthController#login(UserRequest)
+2023-08-11T16:13:09.817+09:00 DEBUG 91841 --- [    Test worker] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [wanted.backend.board.dto.UserRequest@33fefbbe]
+2023-08-11T16:13:09.818+09:00 DEBUG 91841 --- [    Test worker] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2023-08-11T16:13:09.818+09:00 DEBUG 91841 --- [    Test worker] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [wanted.backend.board.dto.LoginResponse@2f5a23c1]
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /auth/login
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Content-Length:"49"]
+             Body = {"email":"Valid@email.com","password":"12345678"}
+    Session Attrs = {}
+
+Handler:
+             Type = wanted.backend.board.controller.AuthController
+           Method = wanted.backend.board.controller.AuthController#login(UserRequest)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [Authorization:"Bearer null", Content-Type:"application/json", X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = application/json
+             Body = {"token":null}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+2023-08-11T16:13:09.824+09:00 DEBUG 91841 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to wanted.backend.board.controller.AuthController#signup(UserRequest)
+2023-08-11T16:13:09.825+09:00 DEBUG 91841 --- [    Test worker] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [wanted.backend.board.dto.UserRequest@1fc51af7]
+2023-08-11T16:13:09.825+09:00  WARN 91841 --- [    Test worker] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<java.lang.String> wanted.backend.board.controller.AuthController.signup(wanted.backend.board.dto.UserRequest): [Field error in object 'userRequest' on field 'password': rejected value [False]; codes [Size.userRequest.password,Size.password,Size.java.lang.String,Size]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [userRequest.password,password]; arguments []; default message [password],2147483647,8]; default message [size must be between 8 and 2147483647]] ]
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /auth/signup
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Content-Length:"46"]
+             Body = {"email":"Valid@email.com","password":"False"}
+    Session Attrs = {}
+
+Handler:
+             Type = wanted.backend.board.controller.AuthController
+           Method = wanted.backend.board.controller.AuthController#signup(UserRequest)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = org.springframework.web.bind.MethodArgumentNotValidException
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 400
+    Error message = Invalid request content.
+          Headers = [X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = null
+             Body = 
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+2023-08-11T16:13:09.828+09:00 DEBUG 91841 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to wanted.backend.board.controller.AuthController#signup(UserRequest)
+2023-08-11T16:13:09.829+09:00 DEBUG 91841 --- [    Test worker] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [wanted.backend.board.dto.UserRequest@41cec7b0]
+2023-08-11T16:13:09.829+09:00  WARN 91841 --- [    Test worker] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<java.lang.String> wanted.backend.board.controller.AuthController.signup(wanted.backend.board.dto.UserRequest): [Field error in object 'userRequest' on field 'email': rejected value [False]; codes [Email.userRequest.email,Email.email,Email.java.lang.String,Email]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [userRequest.email,email]; arguments []; default message [email],[Ljakarta.validation.constraints.Pattern$Flag;@2d12a71f,.*]; default message [must be a well-formed email address]] ]
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /auth/signup
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Content-Length:"39"]
+             Body = {"email":"False","password":"12345678"}
+    Session Attrs = {}
+
+Handler:
+             Type = wanted.backend.board.controller.AuthController
+           Method = wanted.backend.board.controller.AuthController#signup(UserRequest)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = org.springframework.web.bind.MethodArgumentNotValidException
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 400
+    Error message = Invalid request content.
+          Headers = [X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = null
+             Body = 
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+2023-08-11T16:13:09.833+09:00 DEBUG 91841 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to wanted.backend.board.controller.AuthController#login(UserRequest)
+2023-08-11T16:13:09.833+09:00 DEBUG 91841 --- [    Test worker] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [wanted.backend.board.dto.UserRequest@6773c073]
+2023-08-11T16:13:09.834+09:00  WARN 91841 --- [    Test worker] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<wanted.backend.board.dto.LoginResponse> wanted.backend.board.controller.AuthController.login(wanted.backend.board.dto.UserRequest): [Field error in object 'userRequest' on field 'email': rejected value [False]; codes [Email.userRequest.email,Email.email,Email.java.lang.String,Email]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [userRequest.email,email]; arguments []; default message [email],[Ljakarta.validation.constraints.Pattern$Flag;@2d12a71f,.*]; default message [must be a well-formed email address]] ]
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /auth/login
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Accept:"application/json", Content-Length:"39"]
+             Body = {"email":"False","password":"12345678"}
+    Session Attrs = {}
+
+Handler:
+             Type = wanted.backend.board.controller.AuthController
+           Method = wanted.backend.board.controller.AuthController#login(UserRequest)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = org.springframework.web.bind.MethodArgumentNotValidException
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 400
+    Error message = Invalid request content.
+          Headers = [X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = null
+             Body = 
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
