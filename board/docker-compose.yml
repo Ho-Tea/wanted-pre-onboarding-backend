@@ -7,7 +7,7 @@ services:                                               # 이 항목 밑에 실�
       - MYSQL_DATABASE=wanted
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
     volumes:
-      - ./db:var/lib/mysql
+      - ./mysql:/var/lib/mysql
     ports:
       - "3306:3306"      # 접근 포트 설정 (컨테이너 외부:컨테이너 내부)
     restart: always
