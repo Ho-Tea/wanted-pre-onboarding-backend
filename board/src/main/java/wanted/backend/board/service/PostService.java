@@ -3,6 +3,7 @@ package wanted.backend.board.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import wanted.backend.board.dto.PostDetailResponse;
@@ -22,7 +23,7 @@ public class PostService {
 
     @Transactional(readOnly = true)
     public Page<PostResponse> searchAll(int page, int size) {
-        PageRequest pageRequest = PageRequest.of(page - 1, size);
+        PageRequest pageRequest = PageRequest.of(page, size, Sort.by("id").descending());
         return postRepository.findAllByOrderByUserIdDesc(pageRequest).map(PostResponse::from);
     }
 
